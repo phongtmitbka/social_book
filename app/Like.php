@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
+    protected $fillable = ['user_id', 'review_id'];
+    
     protected $table = 'likes';
 
     public function user()
@@ -16,5 +18,10 @@ class Like extends Model
     public function review()
     {
         return $this->belongsTo(Review::class);
+    }
+
+    public function scopeFindLike($query, $reviewId, $userId)
+    {
+        return $query->where('review_id', $reviewId)->where('user_id', $userId);
     }
 }

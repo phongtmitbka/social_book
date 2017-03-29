@@ -66,8 +66,10 @@ class MemberController extends Controller
         $videos = Review::selectUser($id)->selectStreamVideo()->get();
         $numberVideos = $videos->count();
         $numberFavorites = UserBook::selectUser($id)->favorites()->count();
-        $reviews = Review::selectUser($id)->selectReviewText()->get();
         $member = User::find($id);
+        $user = $this->user;
+        $reviews = Review::selectUser($id)->selectReviewText()->get();
+        $reviews = $this->user_like($user, $reviews);
         
         view()->share('user', $this->user);
         view()->share('member', $member);

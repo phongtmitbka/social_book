@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+    <link href="{{ asset('https://fonts.googleapis.com/icon?family=Material+Icons') }}" rel="stylesheet">
     @yield('css')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

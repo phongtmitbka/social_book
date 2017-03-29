@@ -62,4 +62,9 @@ class Review extends Model
     {
         return $query->where('caption', 'like', '%' . $caption . '%');
     }
+
+    public function scopeUserLike($query, $userId)
+    {
+        return $this->likes->where('user_id', $userId);
+    }
 }

@@ -16,6 +16,7 @@ return [
     'review_date' => 'Ngày review',
     'caption' => 'Tiêu đề',
     'like' => 'Thích',
+    'unlike' => 'Bỏ thích',
     'show_detail' => 'Xem chi tiết',
     'show_plus' => 'Xem thêm',
     'time_line' => 'Dòng thời gian',
@@ -35,6 +36,8 @@ return [
     'category' => 'Thể loại',
     'livestream' => 'Trực tiếp',
     'search_review' => 'Tìm kiếm bài viết',
+    'comment' => 'Bình luận',
+    'share' => 'Chia sẻ',
 
     'message' => [
         'edit_success' => 'Sửa thành công',

@@ -12,7 +12,7 @@
     <div class="panel-body">
         <div class="col-md-4">
             <a href="{{ route('member.show', $member->id) }}">
-                <img class="img-thumbnail" src="{{ asset($member->avatar) }}" class="avatar" alt="{{ $member->name }}">
+                <img class="img-thumbnail avatar" src="{{ asset($member->avatar) }}" alt="{{ $member->name }}">
             </a>
         </div>
         <div class="col-md-8">

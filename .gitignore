@@ -3,12 +3,6 @@
 /public/hot
 /storage/*.key
 /vendor
-/public/bower_components
 /.idea
 Homestead.json
 Homestead.yaml
-.env
-/public/avatars
-/public/photo_covers
-/public/ckeditor
-/public/books

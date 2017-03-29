@@ -18,13 +18,14 @@ class HomeController extends Controller
         $numberVideos = $videos->count();
         $cates = Category::all();
         $reviews = Review::selectReviewText()->get();
+        $reviews = $this->user_like($user, $reviews);
 
         return view('pages.home', compact('videos', 'numberVideos', 'mostNewVideo', 'cates', 'reviews', 'user'));
     }
 
     public function categoryReview(Request $request)
     {
-        $books = Book::bookCategory($request->category_id)->get();
+        $books = Book::bookCategory($request->categoryId)->get();
         $user = $this->user;
 
         return view('pages.category-review', compact('books', 'user'));

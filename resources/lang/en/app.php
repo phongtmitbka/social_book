@@ -16,6 +16,7 @@ return [
     'review_date' => 'Review date',
     'caption' => 'Caption',
     'like' => 'Like',
+    'unlike' => 'Unlike',
     'comment' => 'Comment',
     'show_detail' => 'Show detail',
     'show_plus' => 'Show plus',

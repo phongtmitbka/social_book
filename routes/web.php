@@ -55,6 +55,31 @@ Route::group(['prefix' => 'user',
         'as' => 'user.storePass',
         'uses' => 'AccountController@storePass'
     ]);
+
+    Route::post('comment', [
+        'as' => 'user.comment', 
+        'uses' => 'ActionController@comment'
+    ]);
+
+    Route::delete('comment/{id}', [
+        'as' => 'delComment', 
+        'uses' => 'ActionController@delComment'
+    ]);
+
+    Route::put('comment/{id}', [
+        'as' => 'editComment', 
+        'uses' => 'ActionController@editComment'
+    ]);
+
+    Route::get('like', [
+        'as' => 'user.like', 
+        'uses' => 'ActionController@like'
+    ]);
+
+    Route::get('unLike', [
+        'as' => 'user.unLike', 
+        'uses' => 'ActionController@unLike'
+    ]);
 });
 
 Route::get('search/member', [
