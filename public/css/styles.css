@@ -63,6 +63,11 @@
     margin: 20px 0px;
 }
 
-.review-category {
+.review-category, .del-review {
     cursor: pointer;
+}
+
+.follow-btn, .following-btn {
+    margin: 0px 0px 0px 60px;
+    width: 100px;
 }

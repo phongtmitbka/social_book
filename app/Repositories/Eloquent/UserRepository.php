@@ -31,6 +31,11 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         return false;
     }
 
+    public function confirmed()
+    {
+        return $this->model->CONFIRMED;
+    }
+
     /**
      * Search User
      *

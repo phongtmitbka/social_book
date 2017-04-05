@@ -1,6 +1,6 @@
 <p class="action">
     <input type="hidden" class="reviewId" value="{{ $review->id }}" />
-    <span class="col-md-4">
+    <span class="col-md-5">
         <span class="like">{{ $review->likes->count() }} </span>
 
         @if (!isset($user))
@@ -16,15 +16,10 @@
         @endif
         
     </span> 
-    <span class="col-md-4">
+    <span class="col-md-7">
         {{ $review->comments->count() }} 
         <a class="btn btn-link comment">
             {{ trans('app.comment') }}
-        </a>
-    </span>
-    <span class="col-md-4"> 
-        <a href="">{{ trans('app.share') }}
-            <i class="btn btn-link glyphicon glyphicon-share"></i>
         </a>
     </span>
 </p>

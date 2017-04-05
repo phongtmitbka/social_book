@@ -123,7 +123,8 @@
         </div>
             
     </div>
-
+    <div id="fb-root"></div>
+    <script src="{{ asset('js/facebook.js') }}"></script>
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.js') }}"></script>
     <script type="text/javascript" language="javascript" src="{{ asset('ckeditor/ckeditor.js') }}" ></script>

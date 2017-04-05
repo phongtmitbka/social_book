@@ -32,14 +32,70 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
         return $this->model->find($input['review_id'])->comments()->create($data);
     }
 
-    public function selectStreamVideo()
+    public function selectStreamVideo($userId)
+    {
+        return $this->model->where('stream_link', '<>', null)->where('user_id', $userId);
+    }
+
+    public function selectAllVideo()
     {
         return $this->model->where('stream_link', '<>', null);
     }
 
-    public function selectReviewText()
+    public function selectReviewText($userId)
     {
-        return $this->model->where('stream_link', null);
+        return $this->model->where('stream_link', null)->where('user_id', $userId)->orderBy('id', 'desc');;
+    }
+
+    public function selectAllReview()
+    {
+        return $this->model->where('stream_link', null)->orderBy('id', 'desc');;
+    }
+
+    public function selectReviewAuthors($userId)
+    {
+        return $this->model->where('stream_link', null)
+            ->where('user_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->limit(config('view.top_select'));
+    }
+
+    public function selectReviewBooks($bookId)
+    {
+        return $this->model->where('stream_link', null)
+            ->where('book_id', $bookId)
+            ->orderBy('created_at', 'desc')
+            ->limit(config('view.top_select'));
+    }
+
+    public function selectReviewTops()
+    {
+        return $this->model->where('stream_link', null)
+            ->orderBy('created_at', 'desc')
+            ->limit(config('view.top_select'));
+    }
+
+    public function selectVideoAuthors($userId)
+    {
+        return $this->model->where('stream_link', '<>', null)
+            ->where('user_id', $userId)
+            ->orderBy('id', 'desc')
+            ->limit(config('view.top_select'));
+    }
+
+    public function selectVideoBooks($bookId)
+    {
+        return $this->model->where('stream_link', '<>', null)
+            ->where('book_id', $bookId)
+            ->orderBy('id', 'desc')
+            ->limit(config('view.top_select'));
+    }
+
+    public function selectVideoTops()
+    {
+        return $this->model->where('stream_link', '<>', null)
+            ->orderBy('id', 'desc')
+            ->limit(config('view.top_select'));
     }
 
     public function getTopVideo()
@@ -61,8 +117,8 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
         return $this->model->where('caption', 'like', '%' . $caption . '%');
     }
 
-    public function scopeUserLike($userId)
+    public function userLike($userId)
     {
-        return $this->model->likes->where('user_id', $userId);
+        return $this->model->where('user_id', $userId);
     }
 }

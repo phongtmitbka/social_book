@@ -15,4 +15,6 @@ interface UserRepositoryInterface extends RepositoryInterface
     public function findUser($facebookId);
 
     public function searchMember($name);
+
+    public function confirmed();
 }

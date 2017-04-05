@@ -6,9 +6,13 @@ interface ReviewRepositoryInterface extends RepositoryInterface
 {
     public function createComment($input);
 
-    public function selectStreamVideo();
+    public function selectStreamVideo($userId);
 
-    public function selectReviewText();
+    public function selectAllVideo();
+
+    public function selectReviewText($userId);
+
+    public function selectAllReview();
 
     public function getTopVideo();
 
@@ -16,5 +20,5 @@ interface ReviewRepositoryInterface extends RepositoryInterface
 
     public function searchReview($caption);
 
-    public function scopeUserLike($userId);
+    public function userLike($userId);
 }

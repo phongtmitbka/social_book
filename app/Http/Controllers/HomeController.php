@@ -31,7 +31,7 @@ class HomeController extends Controller
         $mostNewVideo = $this->reviewRepository->mostNewVideo();
         $numberVideos = $videos->count();
         $cates = $this->categoryRepository->all();
-        $reviews = $this->reviewRepository->selectReviewText()->get();
+        $reviews = $this->reviewRepository->selectAllReview()->get();
         $reviews = $this->userLike($user, $reviews);
 
         return view('pages.home', compact('videos', 'numberVideos', 'mostNewVideo', 'cates', 'reviews', 'user'));
@@ -47,7 +47,7 @@ class HomeController extends Controller
 
     public function fullVideo()
     {
-        $videos = $this->reviewRepository->selectStreamVideo()->get();
+        $videos = $this->reviewRepository->selectAllVideo()->get();
 
         return view('pages.full-video', compact('videos'));
     }

@@ -16,7 +16,7 @@ class ModifyUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('avatar')->nullable();
             $table->string('photo_cover')->nullable();
-            $table->boolean('level')->nullable()->default(2);
+            $table->smallInteger('level')->nullable()->default(2);
             $table->smallInteger('language')->nullable()->default(0);
             $table->string('facebook_id')->nullable();
             $table->boolean('review_liciense')->nullable()->default(1);

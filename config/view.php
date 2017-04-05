@@ -40,4 +40,6 @@ return [
 
     'top_video' => 3,
 
+    'top_select' => 5,
+
 ];

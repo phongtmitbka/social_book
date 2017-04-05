@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'book_id',
+        'stream_link',
+        'caption',
+        'content',
+        'location',
+    ];
+
     protected $table = 'reviews';
 
     public function user()
@@ -28,38 +37,7 @@ class Review extends Model
         return $this->hasMany(Comment::class);
     }
 
-
-    public function scopeSelectStreamVideo($query)
-    {
-        return $query->where('stream_link', '<>', null);
-    }
-
-    public function scopeSelectReviewText($query)
-    {
-        return $query->where('stream_link', null);
-    }
-
-    public function scopeSortDesc($query)
-    {
-        return $query->orderBy('id', 'desc');
-    }
-
-    public function scopeSelectTop($query)
-    {
-        return $query->take(config('view.top_video'));
-    }
-
-    public function scopeMostNewVideo($query)
-    {
-        return $query->take(config('view.most_new_review'));
-    }
-
-    public function scopeSearchReview($query, $caption)
-    {
-        return $query->where('caption', 'like', '%' . $caption . '%');
-    }
-
-    public function scopeUserLike($query, $userId)
+    public function userLike($userId)
     {
         return $this->likes->where('user_id', $userId);
     }

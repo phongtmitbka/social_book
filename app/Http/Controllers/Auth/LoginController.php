@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
-use App\User;
+use App\Repositories\Contracts\UserRepositoryInterface;
 
 class LoginController extends Controller
 {
@@ -35,9 +35,12 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(
+        UserRepositoryInterface $userRepository
+    )
     {
         $this->middleware('guest', ['except' => 'logout']);
+        $this->userRepository = $userRepository;
     }
 
     public function redirectToProvider()
@@ -66,14 +69,14 @@ class LoginController extends Controller
 
     public function findOrCreateUser($facebookUser)
     {
-        $authUser = User::findUser($facebookUser->id)->first();
+        $authUser = $this->userRepository->findUser($facebookUser->id)->first();
 
         if ($authUser) {
             return $authUser;
         }
 
         try {
-            return User::create([
+            return $this->userRepository->create([
                 'name' => $facebookUser->name,
                 'email' => $facebookUser->email,
                 'facebook_id' => $facebookUser->id,

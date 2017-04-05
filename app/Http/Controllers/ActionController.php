@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\Contracts\CommentRepositoryInterface;
 use App\Repositories\Contracts\LikeRepositoryInterface;
 use App\Repositories\Contracts\ReviewRepositoryInterface;
+use App\Repositories\Contracts\UserBookRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ActionController extends Controller

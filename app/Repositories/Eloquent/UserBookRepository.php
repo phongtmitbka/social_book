@@ -12,13 +12,8 @@ class UserBookRepository extends BaseRepository implements UserBookRepositoryInt
         return UserBook::class;
     }
 
-    public function selectUser($userId)
+    public function favorites($userId)
     {
-        return $this->model->where('user_id', $userId);
-    }
-
-    public function favorites()
-    {
-        return $this->model->where('favorite', 1);
+        return $this->model->where('user_id', $userId)->where('favorite', 1);
     }
 }

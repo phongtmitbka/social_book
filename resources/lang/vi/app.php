@@ -38,6 +38,8 @@ return [
     'search_review' => 'Tìm kiếm bài viết',
     'comment' => 'Bình luận',
     'share' => 'Chia sẻ',
+    'full_video' => 'Xem đầy đủ',
+    'author' => 'Tác gỉa',
 
     'message' => [
         'edit_success' => 'Sửa thành công',

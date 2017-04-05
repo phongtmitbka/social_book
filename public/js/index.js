@@ -158,3 +158,31 @@ $(document).on('keypress', '.edit_comment', function (e) {
         commentEdit.siblings('span').removeClass('hidden');
     }
 });
+
+$(document).ready(function () {
+    $('.del-review').on('click', function () {
+        $('#del-review-form').submit();
+    });
+});
+
+$(document).on('click', '.follow-btn', function () {
+    var memberId = $(this).parent().find('.memberId').val();
+    var url = '/user/follow/' + memberId;
+
+    $.get(url, function (data) {
+        $('#follow-status').html(data);
+    });
+});
+
+$(document).on('click', '.following-btn', function () {
+    var memberId = $(this).parent().find('.memberId').val();
+    var url = '/user/unFollow/' + memberId;
+
+    $.get(url, function (data) {
+        $('#follow-status').html(data);
+    });
+});
+
+$(document).on('click', '.btn-livestream', function () {
+    alert('Tính năng chưa sẵn sàng ở phiên bản hiện tại');
+});

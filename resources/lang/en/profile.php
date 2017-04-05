@@ -14,6 +14,8 @@ return [
     'new_review' => 'new review',
     'all_following' => 'All member followings',
     'my_favorites' => 'My favorites',
+    'follow' => 'Follow',
+    'following' => 'Following',
 
     'button' => [
         'update' => 'Update',

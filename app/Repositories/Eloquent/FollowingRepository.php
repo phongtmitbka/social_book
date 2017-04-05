@@ -14,13 +14,8 @@ class FollowingRepository extends BaseRepository implements FollowingRepositoryI
         return Following::class;
     }
 
-    public function selectFollower($id)
+    public function selectFollowing($followerId, $followingId)
     {
-        return $this->model->where('follower_id', $id);
-    }
-
-    public function selectFollowing($id)
-    {
-        return $this->model->where('following_id', $id);
+        return $this->model->where('follower_id', $followerId)->where('following_id', $followingId);
     }
 }

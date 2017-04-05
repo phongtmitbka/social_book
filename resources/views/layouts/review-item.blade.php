@@ -4,7 +4,7 @@
         <h4>{{ trans('app.reviewer') }}:
             <a href="{{ route('member.show', $review->user) }}" >{{ $review->user->name }}</a>
         </h4>
-        <h5>{{ trans('app.review_date') }}: {{ $review->created_at }}</h5>    
+        <h5>{{ trans('app.review_date') }}: {{ $review->created_at }}</h5>
     </div>
     <div class="panel-body">
         <div class="col-md-4">
@@ -16,11 +16,11 @@
             <h3>
                 {{ trans('app.caption') }}: {{ $review->caption }}
             </h3>
-            <p class="review-frame">
+            <div class="review-frame">
                 {!! str_limit($review->content, $limit = config('view.limit_review'), $end = '...') !!}
-            </p>                         
+            </div>                         
             <p>
-                <a class="btn btn-default" href="">
+                <a class="btn btn-default" href="{{ route('review.show', $review->id) }}">
                     {{ trans('app.show_detail') }}
                     <span class="glyphicon glyphicon-chevron-right">
                     </span>
@@ -30,7 +30,7 @@
             <div class="action-item">
                 <p class="action">
                     <input type="hidden" class="reviewId" value="{{ $review->id }}" />
-                    <span class="col-md-4">
+                    <span class="col-md-5">
                         <span class="like">{{ $review->likes->count() }} </span>
 
                         @if (!isset($user))
@@ -46,15 +46,10 @@
                         @endif
                         
                     </span> 
-                    <span class="col-md-4">
+                    <span class="col-md-7">
                         {{ $review->comments->count() }} 
                         <a class="btn btn-link comment">
                             {{ trans('app.comment') }}
-                        </a>
-                    </span>
-                    <span class="col-md-4"> 
-                        <a href="">{{ trans('app.share') }}
-                            <i class="btn btn-link glyphicon glyphicon-share"></i>
                         </a>
                     </span>
                 </p>

@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\UserRepositoryInterface;
-use App\Repositories\Eloquent\UserBookRepository;
-use App\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -81,7 +79,7 @@ class RegisterController extends Controller
         if ($validator->passes()) {
             $data = $this->create($input)->toArray();
             $data['token_confirm'] = str_random(25);
-            $user = User::find($data['id']);
+            $user = $this->userRepository->find($data['id']);
             $user->token_confirm = $data['token_confirm'];
             $user->save();
 
@@ -102,10 +100,10 @@ class RegisterController extends Controller
 
     public function confirmation($tokenConfirm)
     {
-        $user = User::confirmation($tokenConfirm)->first();
+        $user = $this->userRepository->confirmation($tokenConfirm)->first();
 
         if (!is_null($user)) {
-            $user->confirmed = User::CONFIRMED;
+            $user->confirmed = $this->userRepository->confirmed();
             $user->token_confirm = '';
             $user->save();
             

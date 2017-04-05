@@ -14,6 +14,8 @@ return [
     'new_review' => 'review mới',
     'all_following' => 'Thành viên đang theo dõi',
     'my_favorites' => 'Yêu thích',
+    'follow' => 'Theo dõi',
+    'following' => 'Bỏ theo dõi',
 
     'button' => [
         'update' => 'Cập nhật',

@@ -12,7 +12,7 @@
                                     <div class="col-md-4">
                                         <iframe class="frame-border small-video" src="{{ $video->stream_link }}"  allowfullscreen>
                                         </iframe>
-                                        <a href="">
+                                        <a href="{{ route('video', $video->id) }}">
                                             <center>
                                                 {{ $video->caption }}
                                             </center>
@@ -24,7 +24,7 @@
                                     <div class="col-md-4">
                                         <iframe class="frame-border small-video" src="{{ $video->stream_link }}" allowfullscreen>
                                         </iframe>
-                                        <a href="">
+                                        <a href="{{ route('video', $video->id) }}">
                                             <center>
                                                 {{ $video->caption }}
                                             </center>

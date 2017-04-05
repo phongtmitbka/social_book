@@ -80,6 +80,23 @@ Route::group(['prefix' => 'user',
         'as' => 'user.unLike', 
         'uses' => 'ActionController@unLike'
     ]);
+
+    Route::get('review/create/{id}', [
+        'as' => 'review.createReview', 
+        'uses' => 'ReviewController@createReview'
+    ]);
+
+    Route::resource('review', 'ReviewController', ['except' => ['show', 'index'] ]);
+
+    Route::get('follow/{id}', [
+        'as' => 'user.follow',
+        'uses' => 'MemberController@follow'
+    ]);
+
+    Route::get('unFollow/{id}', [
+        'as' => 'user.unFollow',
+        'uses' => 'MemberController@unFollow'
+    ]);
 });
 
 Route::get('search/member', [
@@ -127,4 +144,14 @@ Route::get('video/full', [
 Route::get('category/review', [
     'as' => 'category.review',
     'uses' => 'HomeController@categoryReview'
+]);
+
+Route::get('review/{id}', [
+    'as' => 'review.show',
+    'uses' => 'ReviewController@show'
+]);
+
+Route::get('video/{id}', [
+    'as' => 'video', 
+    'uses' => 'ReviewController@showVideo'
 ]);
