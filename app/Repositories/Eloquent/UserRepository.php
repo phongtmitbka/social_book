@@ -102,4 +102,9 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     {
         return $this->model->where('name', 'like', '%' . $name . '%');
     }
+
+    public function userTop()
+    {
+        return $this->model->limit(10);
+    }
 }

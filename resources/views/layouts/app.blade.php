@@ -46,7 +46,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/home') }}">{{ trans('app.home') }}</a></li>
                         <li><a href="{{ url('/book') }}">{{ trans('app.book') }}</a></li>
-                        <li><a href="#">{{ trans('app.rank') }}</a></li>
+                        <li><a href="{{ url('/rank') }}">{{ trans('app.rank') }}</a></li>
                     </ul>
                     <ul class="navbar-nav nav col-md-5">
                         <li class="navbar-form navbar-left">

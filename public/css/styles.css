@@ -22,7 +22,7 @@
 }
 
 .review-item .book-image {
-    width: 100%;
+    width: 230px;
     height: 300px;
 }
 
@@ -70,4 +70,24 @@
 .follow-btn, .following-btn {
     margin: 0px 0px 0px 60px;
     width: 100px;
+}
+
+.rank {
+    padding: 0px;
+    margin: 0px 0px;
+}
+
+.rank-title {
+    text-align: center;
+    height: 150px;
+    margin: auto;
+}
+
+.rank .list-group-item {
+    height: 145px;
+}
+
+.rank .follow-btn, .rank .following-btn {
+    margin: 0px 0px 0px 0px;
+    width: 80px;
 }

@@ -16,4 +16,9 @@ class UserBookRepository extends BaseRepository implements UserBookRepositoryInt
     {
         return $this->model->where('user_id', $userId)->where('favorite', 1);
     }
+
+    public function bookFavorites($bookId)
+    {
+    	return $this->model->where('book_id', $bookId)->where('favorite', 1)->count();
+    }
 }

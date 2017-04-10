@@ -54,7 +54,7 @@
                                 <small class="total"> {{ $member->followers->count() }}</small>
                             </a>
                         </li>
-                        <li id="follow-status">
+                        <li class="follow-status">
                             @include('layouts.follow')
                         </li>
                     </ul>

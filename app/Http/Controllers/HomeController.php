@@ -41,8 +41,9 @@ class HomeController extends Controller
     {
         $books = $this->categoryRepository->find($request->categoryId)->books()->get();
         $user = $this->user;
+        $category = $this->categoryRepository->find($request->categoryId);
 
-        return view('pages.category-review', compact('books', 'user'));
+        return view('pages.category-review', compact('books', 'user', 'category'));
     }
 
     public function fullVideo()
@@ -57,5 +58,12 @@ class HomeController extends Controller
         $reviews = $this->reviewRepository->searchReview($request->caption)->get();
 
         return view('pages.search-review', compact('reviews'));
+    }
+
+    public function searchVideo(Request $request)
+    {
+        $videos = $this->reviewRepository->searchVideo($request->caption)->get();
+
+        return view('pages.search-video', compact('videos'));
     }
 }

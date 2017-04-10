@@ -40,7 +40,7 @@ $(document).on('click', '.comment', function () {
 
 $(document).on('click', '#full-video', function () {
     var url = '/video/full';
-    var content = $('#review_content');
+    var content = $('#content-search');
 
     $.get(url, function (data) {
         content.html(data);
@@ -52,12 +52,21 @@ $(document).on('click', '.review-category', function () {
     var categoryId = $(this).children('.categoryId').val();
 
     $.get(url, { categoryId: categoryId }, function (data) {
-        $('#review_content').html(data);
+        $('#content-search').html(data);
     });
 });
 
 $(document).on('keyup', '#searchReview', function (){
     var url = '/search/review';
+    var key = $(this).val();
+
+    $.get(url, { caption: key }, function (data) {
+        $('#review_content').html(data);
+    });
+});
+
+$(document).on('keyup', '#searchVideo', function (){
+    var url = '/search/video';
     var key = $(this).val();
 
     $.get(url, { caption: key }, function (data) {
@@ -168,18 +177,20 @@ $(document).ready(function () {
 $(document).on('click', '.follow-btn', function () {
     var memberId = $(this).parent().find('.memberId').val();
     var url = '/user/follow/' + memberId;
+    var followStatus = $(this).closest('.follow-status');
 
     $.get(url, function (data) {
-        $('#follow-status').html(data);
+        followStatus.html(data);
     });
 });
 
 $(document).on('click', '.following-btn', function () {
     var memberId = $(this).parent().find('.memberId').val();
     var url = '/user/unFollow/' + memberId;
+    var followStatus = $(this).closest('.follow-status');
 
     $.get(url, function (data) {
-        $('#follow-status').html(data);
+        followStatus.html(data);
     });
 });
 

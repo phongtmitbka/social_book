@@ -26,7 +26,7 @@
         @foreach ($videos as $video)
             <iframe class="frame-border small-video" src="{{ $video->stream_link }}"  allowfullscreen>
             </iframe>
-            <a href="">
+            <a href="{{ route('video', $video->id) }}">
                 <center>
                     {{ $video->caption }}
                 </center>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <!--Main content -->
-        <div class="col-md-9">
+        <div class="col-md-9" id="content-search">
             <div class="col-md-7">
                 <h2>{{ trans('app.all_review') }}</h2>
             </div>
