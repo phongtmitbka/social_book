@@ -44,7 +44,7 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
 
     public function selectReviewText($userId)
     {
-        return $this->model->where('stream_link', null)->where('user_id', $userId)->orderBy('id', 'desc');;
+        return $this->model->where('stream_link', null)->where('user_id', $userId)->orderBy('id', 'desc');
     }
 
     public function selectAllReview()
@@ -56,7 +56,7 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
     {
         return $this->model->where('stream_link', null)
             ->where('user_id', $userId)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
             ->limit(config('view.top_select'));
     }
 
@@ -64,14 +64,14 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
     {
         return $this->model->where('stream_link', null)
             ->where('book_id', $bookId)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
             ->limit(config('view.top_select'));
     }
 
     public function selectReviewTops()
     {
         return $this->model->where('stream_link', null)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
             ->limit(config('view.top_select'));
     }
 
@@ -102,23 +102,39 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
     {
         return $this->model->where('stream_link', '<>', null)
             ->orderBy('id', 'desc')
-            ->take(config('view.top_video'));
+            ->limit(config('view.top_video'));
     }
 
     public function mostNewVideo()
     {
         return $this->model->where('stream_link',  '<>', null)
-            ->take(config('view.most_new_review'))
+            ->orderBy('id', 'desc')
+            ->limit(config('view.most_new_review'))
             ->first();
     }
 
     public function searchReview($caption)
     {
-        return $this->model->where('caption', 'like', '%' . $caption . '%');
+        return $this->model->where('caption', 'like', '%' . $caption . '%')->where('stream_link', null);
+    }
+
+    public function searchVideo($caption)
+    {
+        return $this->model->where('caption', 'like', '%' . $caption . '%')->where('stream_link',  '<>', null);
     }
 
     public function userLike($userId)
     {
-        return $this->model->where('user_id', $userId);
+        return $this->model->userLike($userId)->count();
+    }
+
+    public function reviewTop()
+    {
+        return $this->model->where('stream_link', null)->get();
+    }
+
+    public function videoTop()
+    {
+        return $this->model->where('stream_link',  '<>', null)->get();
     }
 }

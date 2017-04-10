@@ -136,6 +136,11 @@ Route::get('search/review', [
     'uses' => 'HomeController@searchReview'
 ]);
 
+Route::get('search/video', [
+    'as' => 'search.video',
+    'uses' => 'HomeController@searchVideo'
+]);
+
 Route::get('video/full', [
     'as' => 'fullVideo',
     'uses' => 'HomeController@fullVideo'
@@ -154,4 +159,9 @@ Route::get('review/{id}', [
 Route::get('video/{id}', [
     'as' => 'video', 
     'uses' => 'ReviewController@showVideo'
+]);
+
+Route::get('rank', [
+    'as' => 'rank',
+    'uses' => 'RankTopController@index'
 ]);

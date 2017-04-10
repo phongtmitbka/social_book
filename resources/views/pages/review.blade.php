@@ -11,10 +11,6 @@
                         <input type="hidden" name="bookId" value="{{ $book->id }}">
                         <h3>{{ trans('app.book') }}: {{ $book->title }}</h3>
                         <h3>{{ trans('app.author') }}: {{ $book->author }}</h3>
-                        <a class="btn btn-primary btn-livestream">
-                            {{ trans('app.livestream') }}
-                            <i class="fa fa-video-camera"></i>
-                        </a>
                     </div>
                     <div class="panel-body">
                         <div class="col-md-3">
@@ -40,7 +36,12 @@
                                 <label>{{ trans('review.location') }}</label>
                                 <input type="text" name="location" class="form-control"><br>
                                 <label>{{ trans('app.caption') }}</label>
-                                <textarea class="form-control" name="caption"></textarea>
+                                <textarea class="form-control" name="caption"></textarea><br>
+                                <a class="btn btn-primary btn-livestream col-md-2"> 
+                                    Youtube link
+                                    <i class="fa fa-video-camera"></i>
+                                </a>
+                                <br><br>
                                 <label>{{ trans('review.write-review') }}</label>
                                 <textarea id="demo" class="form-control ckeditor" rows="3" name="content"></textarea>
                             </div>
@@ -52,5 +53,7 @@
             </div>
         </div>
     </form>
+    <div class="col-md-12 footer">
+    </div>
 </div>
 @endsection

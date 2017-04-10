@@ -41,6 +41,41 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('123456'),
                 'avatar' => 'avatars/avatar.jpg',
                 'photo_cover' => 'photo_covers/photo_cover.jpg',
+            ],
+            [
+                'name' => 'Tô Minh Phong 6',
+                'email' => 'bakhiaquelua2@gmail.com',
+                'password' => bcrypt('123456'),
+                'avatar' => 'avatars/avatar.jpg',
+                'photo_cover' => 'photo_covers/photo_cover.jpg',
+            ],
+            [
+                'name' => 'Tô Minh Phong 7',
+                'email' => 'phongtm2@gmail.com',
+                'password' => bcrypt('123456'),
+                'avatar' => 'avatars/avatar.jpg',
+                'photo_cover' => 'photo_covers/photo_cover.jpg',
+            ],
+            [
+                'name' => 'Tô Minh Phong 8',
+                'email' => 'to.minh.phongframgia2@gmail.com',
+                'password' => bcrypt('123456'),
+                'avatar' => 'avatars/avatar.jpg',
+                'photo_cover' => 'photo_covers/photo_cover.jpg',
+            ],
+            [
+                'name' => 'Tô Minh Phong 9',
+                'email' => 'to.minh.phong2@gmail.com',
+                'password' => bcrypt('123456'),
+                'avatar' => 'avatars/avatar.jpg',
+                'photo_cover' => 'photo_covers/photo_cover.jpg',
+            ],
+            [
+                'name' => 'Tô Minh Phong 10',
+                'email' => 'to.minh.phong2@framgia.com',
+                'password' => bcrypt('123456'),
+                'avatar' => 'avatars/avatar.jpg',
+                'photo_cover' => 'photo_covers/photo_cover.jpg',
             ]
         ]);
     }

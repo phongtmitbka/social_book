@@ -21,4 +21,8 @@ interface ReviewRepositoryInterface extends RepositoryInterface
     public function searchReview($caption);
 
     public function userLike($userId);
+
+    public function reviewTop();
+
+    public function videoTop();
 }

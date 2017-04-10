@@ -48,4 +48,15 @@ class Controller extends BaseController
 
         return $reviews;
     }
+
+    public function likeOrUnlike($user, $review)
+    {
+        if ($user && $review->userLike($user->id)->count() > 0) {
+            $review['user_like'] = 1;
+        } else {
+            $review['user_like'] = 0;
+        }
+
+        return $review;
+    }
 }

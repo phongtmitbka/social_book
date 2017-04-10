@@ -1,6 +1,7 @@
 @extends('pages.member-info')
 
 @section('profile_content')
+    <h2>{{ trans('app.video') }}</h2>
 
     @include('layouts.top-video')
     

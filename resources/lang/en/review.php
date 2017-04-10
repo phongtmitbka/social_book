@@ -11,6 +11,7 @@ return [
     'reset' => 'Reset',
     'send' => 'Send',
     'location' => 'Location',
+    'video-link' => 'Video Link',
 
     'error' => [
         'caption-require' => 'Please enter caption',

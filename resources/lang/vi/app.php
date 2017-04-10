@@ -40,6 +40,7 @@ return [
     'share' => 'Chia sẻ',
     'full_video' => 'Xem đầy đủ',
     'author' => 'Tác gỉa',
+    'search_video' => 'Tìm kiếm video',
 
     'message' => [
         'edit_success' => 'Sửa thành công',

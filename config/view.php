@@ -38,8 +38,10 @@ return [
 
     'most_new_review' => 1,
 
-    'top_video' => 3,
+    'top_video' => 5,
 
     'top_select' => 5,
+
+    'limit_caption' => 20,
 
 ];

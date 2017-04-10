@@ -10,6 +10,7 @@ return [
     'location' => 'Địa điểm',
     'edit' => 'Sửa',
     'delete' => 'Xóa',
+    'video-link' => 'Video Link',
 
     'error' => [
         'caption-require' => 'Bạn chưa nhập tiêu đề cho bài viết',

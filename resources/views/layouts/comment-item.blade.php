@@ -31,9 +31,13 @@
                         <span>{{ $comment->content }}</span>  
                     </span>
 
-                    @if (isset($user) && ($comment->user_id == $user->id || ($review->user_id == $user->id)))
+                    
                         <input type="hidden" name="_token" class="token-action" value="{{ csrf_token() }}">
-                        <span class="col-md-1 hidden material-icons btn edit">mode_edit</span> 
+
+                    @if (isset($user) && ($comment->user_id == $user->id))
+                        <span class="col-md-1 hidden material-icons btn edit">mode_edit</span>
+                    @endif
+                    @if (isset($user) && ($comment->user_id == $user->id || ($review->user_id == $user->id)))
                         <span class="col-md-1 hidden material-icons btn del">highlight_off</span> 
                     @endif
 

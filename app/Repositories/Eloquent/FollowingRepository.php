@@ -18,4 +18,9 @@ class FollowingRepository extends BaseRepository implements FollowingRepositoryI
     {
         return $this->model->where('follower_id', $followerId)->where('following_id', $followingId);
     }
+
+    public function newReview($userId)
+    {
+    	return $this->model->where('following_id', $userId)->get();
+    }
 }

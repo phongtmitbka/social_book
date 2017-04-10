@@ -5,15 +5,11 @@
         <div class="panel panel-default review-item col-md-9">
             <div class="panel-heading">
                 <h3>
-                    <div class="col-md-4">
-                        {{ trans('app.caption') }}: {{ $review->caption }}
-                    </div>
-                    <div class="col-md-7 fb-share-button" data-href="http://fast-ridge-82270.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true">
-                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffast-ridge-82270.herokuapp.com%2F&amp;src=sdkpreparse">
-                            {{ trans('app.share') }}
-                        </a>
+                    <div class="col-md-11">
+                        <h5>{{ trans('app.review_date') }}: {{ $review->created_at }}</h5>
                     </div>
                     <div class="col-md-1">
+
                         @if ($user && $review->user->id == $user->id)
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown">
@@ -27,15 +23,20 @@
                                                 </i> 
                                                 {{ trans('review.edit') }}
                                             </a>
-                                            <a href="{{ route('review.destroy', $review->id) }}">
+                                            <a class="del-review">
                                                 <i class="fa fa-trash-o"></i> 
                                                 {{ trans('review.delete') }}
                                             </a>
+                                            <form id="del-review-form" action="{{ route('review.destroy', $review->id) }}" class="hidden" method="POST">
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                {{ csrf_field() }}
+                                            </form>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                         @endif
+
                     </div>
                     <br>
                 </h3>
@@ -51,14 +52,31 @@
                     <h4>{{ trans('app.reviewer') }}:
                         <a href="{{ route('member.show', $review->user) }}" >{{ $review->user->name }}</a>
                     </h4>
-                    <h5>{{ trans('app.review_date') }}: {{ $review->created_at }}</h5>
+                    <div class="fb-share-button" data-href="http://socialbookreview.herokuapp.com/video/{{ $review->id }}" data-layout="button" data-size="small" data-mobile-iframe="true">
+                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsocialbookreview.herokuapp.com%2Freview%2F&amp;src=sdkpreparse">
+                            {{ trans('app.share') }}
+                        </a>
+                    </div>
                 </div>
                 <div class="col-md-12">
                     <hr>
                         <iframe class="big-video-frame frame-border" src="{{ $review->stream_link }}" allowfullscreen>
                         </iframe>
                     <hr>
-                </div>                          
+                </div>
+                <div class="col-md-12">
+                    <hr>
+                    <p>
+                        {!! $review->content !!}
+                    </p>
+                    <hr>
+                    <div class="action-item">
+
+                        @include('layouts.action-item')
+                        
+                    </div>
+                    <hr>
+                </div>                         
             </div>
         </div>
         <div class="col-md-3">

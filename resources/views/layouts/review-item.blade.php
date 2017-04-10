@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-8">
             <h3>
-                {{ trans('app.caption') }}: {{ $review->caption }}
+                {{ trans('app.caption') }}: {{ str_limit($review->caption, $limit = config('view.limit_caption'), $end = '...') }}
             </h3>
             <div class="review-frame">
                 {!! str_limit($review->content, $limit = config('view.limit_review'), $end = '...') !!}

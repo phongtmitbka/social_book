@@ -2,12 +2,13 @@
 
 @section('content')
 <div class="container custom-container">
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="col-md-12">
-            <center>
-                <h1>{{ trans('app.livestream') }}</h1>
-            </center>
-
+            <div class="col-md-12">
+                <center>
+                    <h1>{{ trans('app.video') }}</h1>
+                </center>
+            </div>
             <div class="col-md-12">
                 <iframe class="big-video-frame frame-border" src="{{ $mostNewVideo->stream_link }}" allowfullscreen>
                 </iframe>
@@ -16,32 +17,13 @@
             @include ('layouts.top-video')
 
             <hr>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <center>
-            <h3>{{ trans('app.video') }}</h3>
-        </center>
-
-        @foreach ($videos as $video)
-            <iframe class="frame-border small-video" src="{{ $video->stream_link }}"  allowfullscreen>
-            </iframe>
-            <a href="">
-                <center>
-                    {{ $video->caption }}
-                </center>
-            </a>
-        @endforeach
-
-        <p>
-            <center>
+            <div class="col-md-3">
                 <a class="btn btn-default form-control" id="full-video">
                     {{ trans('app.full_video') }} 
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
-            </center>
-        </p>
-
+            </div>
+        </div>
     </div>
     <div class="row main-left">
         <div class="col-md-3">
@@ -58,7 +40,7 @@
             </div>
         </div>
         <!--Main content -->
-        <div class="col-md-9">
+        <div class="col-md-9" id="content-search">
             <div class="col-md-7">
                 <h2>{{ trans('app.all_review') }}</h2>
             </div>

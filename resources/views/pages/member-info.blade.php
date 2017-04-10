@@ -54,7 +54,7 @@
                                 <small class="total"> {{ $member->followers->count() }}</small>
                             </a>
                         </li>
-                        <li id="follow-status">
+                        <li class="follow-status">
                             @include('layouts.follow')
                         </li>
                     </ul>
@@ -71,6 +71,8 @@
 
         @include('profiles.following-menu')
         
+    </div>
+    <div class="col-md-12 footer">
     </div>
 </div>
 @endsection

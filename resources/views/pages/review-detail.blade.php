@@ -52,8 +52,8 @@
                     <h4>{{ trans('app.reviewer') }}:
                         <a href="{{ route('member.show', $review->user) }}" >{{ $review->user->name }}</a>
                     </h4>
-                    <div class="col-md-1 fb-share-button" data-href="http://fast-ridge-82270.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true">
-                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffast-ridge-82270.herokuapp.com%2F&amp;src=sdkpreparse">
+                    <div class="fb-share-button" data-href="http://socialbookreview.herokuapp.com/review/{{ $review->id }}" data-layout="button" data-size="small" data-mobile-iframe="true">
+                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsocialbookreview.herokuapp.com%2Freview%2F&amp;src=sdkpreparse">
                             {{ trans('app.share') }}
                         </a>
                     </div>

@@ -84,4 +84,9 @@ class BookRepository extends BaseRepository implements BookRepositoryInterface
     {
       return $this->model->orderBy('publish_date', 'desc')->limit(config('settings.book.limit'))->get();
     }
+
+    public function bookTop()
+    {
+        return $this->model->limit(10);
+    }
 }

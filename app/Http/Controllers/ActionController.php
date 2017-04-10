@@ -30,6 +30,7 @@ class ActionController extends Controller
     {
         $user = $this->user;
         $review = $this->reviewRepository->find($request->reviewId);
+        $review = $this->likeOrUnlike($user, $review);
 
         $this->commentRepository->create([
             'user_id' => $user->id,
@@ -45,6 +46,7 @@ class ActionController extends Controller
         $comment = $this->commentRepository->findOrFail($id);
         $review = $comment->review;
         $user = $this->user;
+        $review = $this->likeOrUnlike($user, $review);
 
         if (isset($comment)) {
             $comment->delete();
@@ -58,6 +60,7 @@ class ActionController extends Controller
         $user = $this->user;
         $comment = $this->commentRepository->findOrFail($id);
         $review = $comment->review;
+        $review = $this->likeOrUnlike($user, $review);
 
         try {
             $comment->content = $request->content;

@@ -17,4 +17,6 @@ interface UserRepositoryInterface extends RepositoryInterface
     public function searchMember($name);
 
     public function confirmed();
+
+    public function userTop();
 }

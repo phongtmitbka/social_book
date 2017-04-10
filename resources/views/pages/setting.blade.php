@@ -34,9 +34,8 @@
                         </div>
                         <div class="form-group">
                             <label>
-                                {{ trans('profile.email') }}
+                                {{ trans('profile.email') }}: {{ $user->email }}
                             </label>
-                            <input type="email" value="{{ $user->email }}" class="form-control" name="email" readonly>
                         </div>
                         <div class="form-group">
                             <label>

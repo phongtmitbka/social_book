@@ -47,6 +47,7 @@ return [
     'category' => 'Category',
     'livestream' => 'Livestream',
     'search_review' => 'Search review',
+    'search_video' => 'Search video',
     'full_video' => 'Full video',
     'author' => 'Author',
     'confirm_message' => ' Your confirmation is completed. Please click the link ot get access ',

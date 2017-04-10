@@ -40,7 +40,7 @@ $(document).on('click', '.comment', function () {
 
 $(document).on('click', '#full-video', function () {
     var url = '/video/full';
-    var content = $('#review_content');
+    var content = $('#content-search');
 
     $.get(url, function (data) {
         content.html(data);
@@ -52,12 +52,21 @@ $(document).on('click', '.review-category', function () {
     var categoryId = $(this).children('.categoryId').val();
 
     $.get(url, { categoryId: categoryId }, function (data) {
-        $('#review_content').html(data);
+        $('#content-search').html(data);
     });
 });
 
 $(document).on('keyup', '#searchReview', function (){
     var url = '/search/review';
+    var key = $(this).val();
+
+    $.get(url, { caption: key }, function (data) {
+        $('#review_content').html(data);
+    });
+});
+
+$(document).on('keyup', '#searchVideo', function (){
+    var url = '/search/video';
     var key = $(this).val();
 
     $.get(url, { caption: key }, function (data) {
@@ -168,21 +177,61 @@ $(document).ready(function () {
 $(document).on('click', '.follow-btn', function () {
     var memberId = $(this).parent().find('.memberId').val();
     var url = '/user/follow/' + memberId;
+    var followStatus = $(this).closest('.follow-status');
 
     $.get(url, function (data) {
-        $('#follow-status').html(data);
+        followStatus.html(data);
     });
 });
 
 $(document).on('click', '.following-btn', function () {
     var memberId = $(this).parent().find('.memberId').val();
     var url = '/user/unFollow/' + memberId;
+    var followStatus = $(this).closest('.follow-status');
 
     $.get(url, function (data) {
-        $('#follow-status').html(data);
+        followStatus.html(data);
     });
 });
 
 $(document).on('click', '.btn-livestream', function () {
-    alert('Tính năng chưa sẵn sàng ở phiên bản hiện tại');
+    var link = $('.link').val();
+    var youtubeLink = prompt("Link youtube", link ? link : "Please enter youtube link");
+    var youtubeId = getId(youtubeLink);
+    if(youtubeId != 'error') {
+        var embedLink = '//www.youtube.com/embed/' + youtubeId;
+
+        if (link) {
+            $('.link').val(embedLink);
+        } else {
+            var textLink = '<input type="text" name="link" class="col-md-10 link" value="' + embedLink + '" readonly>';
+        $('.btn-livestream').after(textLink);
+        }
+        
+    } else {
+        alert('Error: Please enter youtube link');
+    }
 });
+
+$(document).on('click', '.btn-edit-link', function () {
+    var link = $('.link').val();
+    var youtubeLink = prompt("Link youtube", link);
+    var youtubeId = getId(youtubeLink);
+    if(youtubeId != 'error') {
+        var embedLink = '//www.youtube.com/embed/' + youtubeId;
+        $('.link').val(embedLink);
+    } else {
+        alert('Error: Please enter youtube link');
+    }
+});
+
+function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return 'error';
+    }
+}
